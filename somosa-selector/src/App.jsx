@@ -5,7 +5,7 @@ const App = () => {
     <div className="header">
       <h1>"Somosa Selector"</h1>
       <h2>"Count:"</h2>
-      <img className="samosa" src=""></img> // TODO: Find image of somosa
+      <img className="samosa" src=""></img> {/* TODO: Find image of samosa */}
     </div>
   </div>;
 };
