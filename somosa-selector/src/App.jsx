@@ -26,9 +26,9 @@ const App = () => {
           <button>10 samosas</button>
         </div>
         <div className="upgrade">
-          <h3>Double Stuffed 👯‍♀️</h3>
-          <p>2x per click</p>
-          <button>10 samosas</button>
+          <h3>Party Pack 👯‍♀️</h3>
+          <p>5x per click</p>
+          <button>100 samosas</button>
         </div>
       </div>
     </div>
