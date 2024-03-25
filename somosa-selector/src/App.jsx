@@ -30,6 +30,11 @@ const App = () => {
           <p>5x per click</p>
           <button>100 samosas</button>
         </div>
+        <div className="upgrade">
+          <h3>Full Feast 👯‍♀️</h3>
+          <p>10x per click</p>
+          <button>1000 samosas</button>
+        </div>
       </div>
     </div>
   );
