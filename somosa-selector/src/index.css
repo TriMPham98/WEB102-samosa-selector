@@ -82,3 +82,16 @@ button:focus-visible {
   width: 200px;
   line-height: 0.5;
 }
+
+.button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.3em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.87);
+  cursor: pointer;
+  margin-top: 10px;
+}
