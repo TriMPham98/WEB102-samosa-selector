@@ -1,17 +1,22 @@
 import "./App.css";
 import { useState } from "react";
+import clickSound from './assets/samosaClick.mp3';
 
 const App = () => {
   const [count, setCount] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
 
-  // Function to format numbers with commas
   const formatNumber = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
+  const playSound = () => {
+    new Audio(clickSound).play();
+  };
+
   const updateCount = () => {
     setCount(parseFloat((count + multiplier).toFixed(2)));
+    playSound();
   };
 
   const buyDoubleStuffed = () => {
