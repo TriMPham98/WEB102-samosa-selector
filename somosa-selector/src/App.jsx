@@ -11,8 +11,15 @@ const App = () => {
 
   const buyDoubleStuffed = () => {
     if (count >= 10) {
-      setMultiplier(multiplier * 2);
-      setCount(count - 10); // Deduct the cost of the upgrade
+      setMultiplier(multiplier * 1.02);
+      setCount(count - 10);
+    }
+  };
+
+  const buyPartyPack = () => {
+    if (count >= 100) {
+      setMultiplier(multiplier * 1.05);
+      setCount(count - 100);
     }
   };
 
@@ -31,17 +38,17 @@ const App = () => {
       <div className="container">
         <div className="upgrade">
           <h3>Double Stuffed 👯‍♀️</h3>
-          <p>2x per click</p>
+          <p>1.02x per click</p>
           <button onClick={buyDoubleStuffed}>10 samosas</button>
         </div>
         <div className="upgrade">
           <h3>Party Pack 🎉</h3>
-          <p>5x per click</p>
-          <button>100 samosas</button>
+          <p>1.05x per click</p>
+          <button onClick={buyPartyPack}>100 samosas</button>
         </div>
         <div className="upgrade">
           <h3>Full Feast 🧑🏼‍🍳</h3>
-          <p>10x per click</p>
+          <p>1.10x per click</p>
           <button>1000 samosas</button>
         </div>
       </div>
