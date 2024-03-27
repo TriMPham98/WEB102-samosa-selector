@@ -17,14 +17,14 @@ const App = () => {
   };
 
   const buyPartyPack = () => {
-    if (count >= 100) {
+    if (count >= 1000) {
       setMultiplier(multiplier * 1.25);
       setCount(count - 1000);
     }
   };
 
   const buyFullFeast = () => {
-    if (count >= 100) {
+    if (count >= 10000) {
       setMultiplier(multiplier * 1.50);
       setCount(count - 10000);
     }
