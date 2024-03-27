@@ -1,8 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import clickSound from "./assets/samosaClick.mp3";
-// Import your upgrade sounds here
-// import doubleStuffedSound from "./assets/doubleStuffedSound.mp3";
+import doubleStuffedSound from "./assets/upgradeSound1.mp3";
 // import partyPackSound from "./assets/partyPackSound.mp3";
 // import fullFeastSound from "./assets/fullFeastSound.mp3";
 
