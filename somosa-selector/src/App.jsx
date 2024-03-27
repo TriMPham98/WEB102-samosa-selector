@@ -57,7 +57,7 @@ const App = () => {
         <img
           className="samosa"
           src="../src/assets/samosa.png"
-          width={690}
+          width={420}
           alt="Samosa"
           onClick={updateCount}></img>
       </div>
