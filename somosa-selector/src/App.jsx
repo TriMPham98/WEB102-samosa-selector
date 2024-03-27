@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import clickSound from './assets/samosaClick.mp3';
+import clickSound from "./assets/samosaClick.mp3";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -11,7 +11,9 @@ const App = () => {
   };
 
   const playSound = () => {
-    new Audio(clickSound).play();
+    const sound = new Audio(clickSound);
+    sound.volume = 0.25;
+    sound.play();
   };
 
   const updateCount = () => {
@@ -28,7 +30,7 @@ const App = () => {
 
   const buyPartyPack = () => {
     if (count >= 1000) {
-      setMultiplier(multiplier * 1.10);
+      setMultiplier(multiplier * 1.1);
       setCount(parseFloat((count - 1000).toFixed(2)));
     }
   };
@@ -75,4 +77,3 @@ const App = () => {
 };
 
 export default App;
-
