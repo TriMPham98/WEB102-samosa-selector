@@ -74,7 +74,6 @@ button:focus-visible {
 
 .upgrade {
   border: 1px solid rgba(153, 153, 153, 0.497);
-  border-radius: 8px;
   padding-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
