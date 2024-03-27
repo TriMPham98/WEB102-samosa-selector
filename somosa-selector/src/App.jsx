@@ -5,6 +5,11 @@ const App = () => {
   const [count, setCount] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
 
+  // Function to format numbers with commas
+  const formatNumber = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   const updateCount = () => {
     setCount(parseFloat((count + multiplier).toFixed(1)));
   };
@@ -34,7 +39,7 @@ const App = () => {
     <div className="App">
       <div className="header">
         <h1>Samosa Selector</h1>
-        <h2>Count: {count.toFixed(1)}</h2>
+        <h2>Count: {formatNumber(count.toFixed(1))}</h2>
         <h2>Multiplier: {multiplier.toFixed(2)}x</h2>
         <img
           className="samosa"
@@ -65,3 +70,4 @@ const App = () => {
 };
 
 export default App;
+
