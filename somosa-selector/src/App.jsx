@@ -1,6 +1,10 @@
 import "./App.css";
 import { useState } from "react";
 import clickSound from "./assets/samosaClick.mp3";
+// Import your upgrade sounds here
+// import doubleStuffedSound from "./assets/doubleStuffedSound.mp3";
+// import partyPackSound from "./assets/partyPackSound.mp3";
+// import fullFeastSound from "./assets/fullFeastSound.mp3";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -10,21 +14,22 @@ const App = () => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
-  const playSound = () => {
-    const sound = new Audio(clickSound);
+  const playSound = (soundPath) => {
+    const sound = new Audio(soundPath);
     sound.volume = 0.25;
     sound.play();
   };
 
   const updateCount = () => {
     setCount(parseFloat((count + multiplier).toFixed(2)));
-    playSound();
+    playSound(clickSound);
   };
 
   const buyDoubleStuffed = () => {
     if (count >= 10) {
       setMultiplier(multiplier * 1.01);
       setCount(parseFloat((count - 10).toFixed(2)));
+      playSound(doubleStuffedSound);
     }
   };
 
@@ -32,6 +37,7 @@ const App = () => {
     if (count >= 1000) {
       setMultiplier(multiplier * 1.1);
       setCount(parseFloat((count - 1000).toFixed(2)));
+      playSound(partyPackSound);
     }
   };
 
@@ -39,6 +45,7 @@ const App = () => {
     if (count >= 100000) {
       setMultiplier(multiplier * 1.25);
       setCount(parseFloat((count - 100000).toFixed(2)));
+      playSound(fullFeastSound);
     }
   };
 
