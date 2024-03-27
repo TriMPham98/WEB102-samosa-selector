@@ -25,9 +25,9 @@ const App = () => {
   };
 
   const buyDoubleStuffed = () => {
-    if (count >= 10) {
-      setMultiplier(multiplier * 1.01);
-      setCount(parseFloat((count - 10).toFixed(2)));
+    if (count >= 25) {
+      setMultiplier(multiplier * 1.1);
+      setCount(parseFloat((count - 25).toFixed(2)));
       playSound(doubleStuffedSound);
     }
   };
@@ -64,8 +64,8 @@ const App = () => {
       <div className="container">
         <div className="upgrade">
           <h3>Double Stuffed 👯‍♀️</h3>
-          <p>1.01x per click</p>
-          <button onClick={buyDoubleStuffed}>10 samosas</button>
+          <p>1.05x per click</p>
+          <button onClick={buyDoubleStuffed}>25 samosas</button>
         </div>
         <div className="upgrade">
           <h3>Party Pack 🎉</h3>
