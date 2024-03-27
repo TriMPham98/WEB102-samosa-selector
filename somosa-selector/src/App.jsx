@@ -23,7 +23,8 @@ const App = () => {
         <h2>Count: {count}</h2>
         <img
           className="samosa"
-          src="https://cdn.shopify.com/s/files/1/1785/5627/t/60/assets/origins_of_chicken_samosa-1697398529680_400x.jpg?v=1697398530"
+          src="../src/assets/samosa.png"
+          width={690}
           alt="Samosa"
           onClick={updateCount}></img>
       </div>
