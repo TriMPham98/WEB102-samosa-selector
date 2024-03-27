@@ -34,6 +34,7 @@ const App = () => {
     <div className="App">
       <div className="header">
         <h1>Samosa Selector</h1>
+        <h2>Multiplier: {multiplier.toFixed(2)}x</h2>
         <h2>Count: {count}</h2>
         <img
           className="samosa"
