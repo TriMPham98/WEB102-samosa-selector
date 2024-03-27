@@ -65,17 +65,29 @@ const App = () => {
         <div className="upgrade">
           <h3>Double Stuffed 👯‍♀️</h3>
           <p>1.05x per click</p>
-          <button onClick={buyDoubleStuffed}>25 samosas</button>
+          <button
+            className={count >= 25 ? "upgrade-sufficient" : ""}
+            onClick={buyDoubleStuffed}>
+            25 samosas
+          </button>
         </div>
         <div className="upgrade">
           <h3>Party Pack 🎉</h3>
           <p>1.10x per click</p>
-          <button onClick={buyPartyPack}>1,000 samosas</button>
+          <button
+            className={count >= 1000 ? "upgrade-sufficient" : ""}
+            onClick={buyPartyPack}>
+            1,000 samosas
+          </button>
         </div>
         <div className="upgrade">
           <h3>Full Feast 🧑🏼‍🍳</h3>
           <p>1.25x per click</p>
-          <button onClick={buyFullFeast}>100,000 samosas</button>
+          <button
+            className={count >= 100000 ? "upgrade-sufficient" : ""}
+            onClick={buyFullFeast}>
+            100,000 samosas
+          </button>
         </div>
       </div>
     </div>
