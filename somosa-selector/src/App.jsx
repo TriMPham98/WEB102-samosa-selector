@@ -8,6 +8,9 @@ import fullFeastSound from "./assets/upgradeSound2.mp3";
 const App = () => {
   const [count, setCount] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
+  const [doubleStuffedCost, setDoubleStuffedCost] = useState(25);
+  const [partyPackCost, setPartyPackCost] = useState(1000);
+  const [fullFeastCost, setFullFeastCost] = useState(100000);
 
   const formatNumber = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -25,25 +28,28 @@ const App = () => {
   };
 
   const buyDoubleStuffed = () => {
-    if (count >= 25) {
+    if (count >= doubleStuffedCost) {
       setMultiplier(multiplier * 1.1);
-      setCount(parseFloat((count - 25).toFixed(2)));
+      setCount(parseFloat((count - doubleStuffedCost).toFixed(2)));
+      setDoubleStuffedCost(doubleStuffedCost + doubleStuffedCost * 0.5);
       playSound(doubleStuffedSound);
     }
   };
 
   const buyPartyPack = () => {
-    if (count >= 1000) {
+    if (count >= partyPackCost) {
       setMultiplier(multiplier * 1.1);
-      setCount(parseFloat((count - 1000).toFixed(2)));
+      setCount(parseFloat((count - partyPackCost).toFixed(2)));
+      setPartyPackCost(partyPackCost + partyPackCost * 0.5);
       playSound(partyPackSound);
     }
   };
 
   const buyFullFeast = () => {
-    if (count >= 100000) {
+    if (count >= fullFeastCost) {
       setMultiplier(multiplier * 1.25);
-      setCount(parseFloat((count - 100000).toFixed(2)));
+      setCount(parseFloat((count - fullFeastCost).toFixed(2)));
+      setFullFeastCost(fullFeastCost + fullFeastCost * 0.5);
       playSound(fullFeastSound);
     }
   };
@@ -66,27 +72,27 @@ const App = () => {
           <h3>Double Stuffed 👯‍♀️</h3>
           <p>1.05x per click</p>
           <button
-            className={count >= 25 ? "upgrade-sufficient" : ""}
+            className={count >= doubleStuffedCost ? "upgrade-sufficient" : ""}
             onClick={buyDoubleStuffed}>
-            25 samosas
+            {formatNumber(doubleStuffedCost.toFixed(2))} samosas
           </button>
         </div>
         <div className="upgrade">
           <h3>Party Pack 🎉</h3>
           <p>1.10x per click</p>
           <button
-            className={count >= 1000 ? "upgrade-sufficient" : ""}
+            className={count >= partyPackCost ? "upgrade-sufficient" : ""}
             onClick={buyPartyPack}>
-            1,000 samosas
+            {formatNumber(partyPackCost.toFixed(2))} samosas
           </button>
         </div>
         <div className="upgrade">
           <h3>Full Feast 🧑🏼‍🍳</h3>
           <p>1.25x per click</p>
           <button
-            className={count >= 100000 ? "upgrade-sufficient" : ""}
+            className={count >= fullFeastCost ? "upgrade-sufficient" : ""}
             onClick={buyFullFeast}>
-            100,000 samosas
+            {formatNumber(fullFeastCost.toFixed(2))} samosas
           </button>
         </div>
       </div>
