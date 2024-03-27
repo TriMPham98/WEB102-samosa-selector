@@ -6,27 +6,27 @@ const App = () => {
   const [multiplier, setMultiplier] = useState(1);
 
   const updateCount = () => {
-    setCount(count + multiplier);
+    setCount(parseFloat((count + multiplier).toFixed(1)));
   };
 
   const buyDoubleStuffed = () => {
-    if (count >= 10) {
+    if (count >= 25) {
       setMultiplier(multiplier * 1.05);
-      setCount(count - 10);
+      setCount(parseFloat((count - 25).toFixed(1)));
     }
   };
 
   const buyPartyPack = () => {
     if (count >= 1000) {
       setMultiplier(multiplier * 1.25);
-      setCount(count - 1000);
+      setCount(parseFloat((count - 1000).toFixed(1)));
     }
   };
 
   const buyFullFeast = () => {
     if (count >= 10000) {
       setMultiplier(multiplier * 1.50);
-      setCount(count - 10000);
+      setCount(parseFloat((count - 10000).toFixed(1)));
     }
   };
 
@@ -35,7 +35,7 @@ const App = () => {
       <div className="header">
         <h1>Samosa Selector</h1>
         <h2>Multiplier: {multiplier.toFixed(2)}x</h2>
-        <h2>Count: {count}</h2>
+        <h2>Count: {count.toFixed(1)}</h2>
         <img
           className="samosa"
           src="../src/assets/samosa.png"
@@ -47,7 +47,7 @@ const App = () => {
         <div className="upgrade">
           <h3>Double Stuffed 👯‍♀️</h3>
           <p>1.05x per click</p>
-          <button onClick={buyDoubleStuffed}>10 samosas</button>
+          <button onClick={buyDoubleStuffed}>25 samosas</button>
         </div>
         <div className="upgrade">
           <h3>Party Pack 🎉</h3>
