@@ -1,9 +1,9 @@
 import "./App.css";
 import { useState } from "react";
 import clickSound from "./assets/samosaClick.mp3";
-import doubleStuffedSound from "./assets/upgradeSound1.mp3";
-// import partyPackSound from "./assets/partyPackSound.mp3";
-// import fullFeastSound from "./assets/fullFeastSound.mp3";
+import doubleStuffedSound from "./assets/upgradeSound2.mp3";
+import partyPackSound from "./assets/upgradeSound2.mp3";
+import fullFeastSound from "./assets/upgradeSound2.mp3";
 
 const App = () => {
   const [count, setCount] = useState(0);
