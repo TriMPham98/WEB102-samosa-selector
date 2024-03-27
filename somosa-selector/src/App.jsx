@@ -25,7 +25,7 @@ const App = () => {
 
   const buyFullFeast = () => {
     if (count >= 10000) {
-      setMultiplier(multiplier * 1.50);
+      setMultiplier(multiplier * 1.5);
       setCount(parseFloat((count - 10000).toFixed(1)));
     }
   };
@@ -34,8 +34,8 @@ const App = () => {
     <div className="App">
       <div className="header">
         <h1>Samosa Selector</h1>
-        <h2>Multiplier: {multiplier.toFixed(2)}x</h2>
         <h2>Count: {count.toFixed(1)}</h2>
+        <h2>Multiplier: {multiplier.toFixed(2)}x</h2>
         <img
           className="samosa"
           src="../src/assets/samosa.png"
