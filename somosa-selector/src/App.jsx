@@ -3,9 +3,17 @@ import { useState } from "react";
 
 const App = () => {
   const [count, setCount] = useState(0);
+  const [multiplier, setMultiplier] = useState(1);
 
-  const updateCount = (multiplier = 1) => {
+  const updateCount = () => {
     setCount(count + multiplier);
+  };
+
+  const buyDoubleStuffed = () => {
+    if (count >= 10) {
+      setMultiplier(multiplier * 2);
+      setCount(count - 10); // Deduct the cost of the upgrade
+    }
   };
 
   return (
@@ -17,13 +25,13 @@ const App = () => {
           className="samosa"
           src="https://cdn.shopify.com/s/files/1/1785/5627/t/60/assets/origins_of_chicken_samosa-1697398529680_400x.jpg?v=1697398530"
           alt="Samosa"
-          onClick={() => updateCount(1)}></img>
+          onClick={updateCount}></img>
       </div>
       <div className="container">
         <div className="upgrade">
           <h3>Double Stuffed 👯‍♀️</h3>
           <p>2x per click</p>
-          <button>10 samosas</button>
+          <button onClick={buyDoubleStuffed}>10 samosas</button>
         </div>
         <div className="upgrade">
           <h3>Party Pack 🎉</h3>
