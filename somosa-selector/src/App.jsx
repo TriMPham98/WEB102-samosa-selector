@@ -11,27 +11,27 @@ const App = () => {
   };
 
   const updateCount = () => {
-    setCount(parseFloat((count + multiplier).toFixed(1)));
+    setCount(parseFloat((count + multiplier).toFixed(2)));
   };
 
   const buyDoubleStuffed = () => {
     if (count >= 10) {
       setMultiplier(multiplier * 1.01);
-      setCount(parseFloat((count - 10).toFixed(1)));
+      setCount(parseFloat((count - 10).toFixed(2)));
     }
   };
 
   const buyPartyPack = () => {
     if (count >= 1000) {
       setMultiplier(multiplier * 1.25);
-      setCount(parseFloat((count - 1000).toFixed(1)));
+      setCount(parseFloat((count - 1000).toFixed(2)));
     }
   };
 
   const buyFullFeast = () => {
     if (count >= 10000) {
       setMultiplier(multiplier * 1.5);
-      setCount(parseFloat((count - 10000).toFixed(1)));
+      setCount(parseFloat((count - 10000).toFixed(2)));
     }
   };
 
@@ -39,8 +39,8 @@ const App = () => {
     <div className="App">
       <div className="header">
         <h1>Samosa Selector</h1>
-        <h2>Count: {formatNumber(count.toFixed(1))}</h2>
-        <h2>Multiplier: {multiplier.toFixed(2)}x</h2>
+        <h2>Count: {formatNumber(count.toFixed(2))}</h2>
+        <h2>Multiplier: {formatNumber(multiplier.toFixed(3))}x</h2>
         <img
           className="samosa"
           src="../src/assets/samosa.png"
