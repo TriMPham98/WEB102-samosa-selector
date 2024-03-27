@@ -23,15 +23,15 @@ const App = () => {
 
   const buyPartyPack = () => {
     if (count >= 1000) {
-      setMultiplier(multiplier * 1.25);
+      setMultiplier(multiplier * 1.10);
       setCount(parseFloat((count - 1000).toFixed(2)));
     }
   };
 
   const buyFullFeast = () => {
-    if (count >= 10000) {
-      setMultiplier(multiplier * 1.5);
-      setCount(parseFloat((count - 10000).toFixed(2)));
+    if (count >= 100000) {
+      setMultiplier(multiplier * 1.25);
+      setCount(parseFloat((count - 100000).toFixed(2)));
     }
   };
 
@@ -56,13 +56,13 @@ const App = () => {
         </div>
         <div className="upgrade">
           <h3>Party Pack 🎉</h3>
-          <p>1.25x per click</p>
-          <button onClick={buyPartyPack}>1000 samosas</button>
+          <p>1.10x per click</p>
+          <button onClick={buyPartyPack}>1,000 samosas</button>
         </div>
         <div className="upgrade">
           <h3>Full Feast 🧑🏼‍🍳</h3>
-          <p>1.50x per click</p>
-          <button onClick={buyFullFeast}>10000 samosas</button>
+          <p>1.25x per click</p>
+          <button onClick={buyFullFeast}>100,000 samosas</button>
         </div>
       </div>
     </div>
