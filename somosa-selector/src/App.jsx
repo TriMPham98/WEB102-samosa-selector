@@ -9,9 +9,9 @@ import ConfettiExplosion from "react-confetti-explosion";
 const App = () => {
   const [count, setCount] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
-  const [doubleStuffedCost, setDoubleStuffedCost] = useState(25);
-  const [partyPackCost, setPartyPackCost] = useState(1000);
-  const [fullFeastCost, setFullFeastCost] = useState(100000);
+  const [doubleStuffedCost, setDoubleStuffedCost] = useState(5); // TODO: return back to 25
+  const [partyPackCost, setPartyPackCost] = useState(100); // TODO: return back to 1000
+  const [fullFeastCost, setFullFeastCost] = useState(1000); // TODO: return back to 100000
   const [showConfetti, setShowConfetti] = useState(false);
   const [confettiKey, setConfettiKey] = useState(0);
   const [isConfettiRunning, setIsConfettiRunning] = useState(false);
