@@ -47,7 +47,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #ffffff;
 }
 button:focus,
 button:focus-visible {
@@ -60,7 +60,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #ffffff;
   }
   button {
     background-color: #f9f9f9;
@@ -99,11 +99,10 @@ button:focus-visible {
 }
 
 .upgrade-sufficient {
-  background-color: #ffffff;
-  color: #000000;
-  border: 1px solid #cccccc;
+  background-color: #4CAF50; /* Optimistic green background */
+  color: #ffffff; /* White text color for better contrast */
+  border: 1px solid #388E3C; /* Darker green border for depth */
 }
-
 .samosa:hover {
   cursor: pointer;
   transform: scale(1.1);
