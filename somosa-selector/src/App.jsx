@@ -13,6 +13,8 @@ const App = () => {
   const [partyPackCost, setPartyPackCost] = useState(1000);
   const [fullFeastCost, setFullFeastCost] = useState(100000);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [confettiKey, setConfettiKey] = useState(0);
+  const [isConfettiRunning, setIsConfettiRunning] = useState(false);
 
   const formatNumber = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -29,14 +31,27 @@ const App = () => {
     playSound(clickSound);
   };
 
+  const triggerConfetti = () => {
+    if (!isConfettiRunning) {
+      setIsConfettiRunning(true);
+      setShowConfetti(true);
+      setConfettiKey((prevKey) => prevKey + 1);
+      setTimeout(() => {
+        setShowConfetti(false);
+        setIsConfettiRunning(false);
+      }, 2200);
+    } else {
+      setConfettiKey((prevKey) => prevKey + 1);
+    }
+  };
+
   const buyDoubleStuffed = () => {
     if (count >= doubleStuffedCost) {
       setMultiplier(multiplier * 1.1);
       setCount(parseFloat((count - doubleStuffedCost).toFixed(2)));
       setDoubleStuffedCost(doubleStuffedCost + doubleStuffedCost * 0.125);
       playSound(doubleStuffedSound);
-      setShowConfetti(true);
-      setTimeout(() => setShowConfetti(false), 2200);
+      triggerConfetti();
     }
   };
 
@@ -100,7 +115,7 @@ const App = () => {
           </button>
         </div>
       </div>
-      {showConfetti && <ConfettiExplosion />}
+      {showConfetti && <ConfettiExplosion key={confettiKey} />}
     </div>
   );
 };
