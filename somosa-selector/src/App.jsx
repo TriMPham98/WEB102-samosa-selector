@@ -31,7 +31,7 @@ const App = () => {
     if (count >= doubleStuffedCost) {
       setMultiplier(multiplier * 1.1);
       setCount(parseFloat((count - doubleStuffedCost).toFixed(2)));
-      setDoubleStuffedCost(doubleStuffedCost + doubleStuffedCost * 0.5);
+      setDoubleStuffedCost(doubleStuffedCost + doubleStuffedCost * 0.125);
       playSound(doubleStuffedSound);
     }
   };
@@ -49,7 +49,7 @@ const App = () => {
     if (count >= fullFeastCost) {
       setMultiplier(multiplier * 1.25);
       setCount(parseFloat((count - fullFeastCost).toFixed(2)));
-      setFullFeastCost(fullFeastCost + fullFeastCost * 0.5);
+      setFullFeastCost(fullFeastCost + fullFeastCost * 0.75);
       playSound(fullFeastSound);
     }
   };
