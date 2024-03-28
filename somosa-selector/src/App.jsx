@@ -4,6 +4,7 @@ import clickSound from "./assets/samosaClick.mp3";
 import doubleStuffedSound from "./assets/upgradeSound2.mp3";
 import partyPackSound from "./assets/upgradeSound2.mp3";
 import fullFeastSound from "./assets/upgradeSound2.mp3";
+import ConfettiExplosion from "react-confetti-explosion";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -11,6 +12,7 @@ const App = () => {
   const [doubleStuffedCost, setDoubleStuffedCost] = useState(25);
   const [partyPackCost, setPartyPackCost] = useState(1000);
   const [fullFeastCost, setFullFeastCost] = useState(100000);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const formatNumber = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -33,6 +35,8 @@ const App = () => {
       setCount(parseFloat((count - doubleStuffedCost).toFixed(2)));
       setDoubleStuffedCost(doubleStuffedCost + doubleStuffedCost * 0.125);
       playSound(doubleStuffedSound);
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 2200);
     }
   };
 
@@ -96,6 +100,7 @@ const App = () => {
           </button>
         </div>
       </div>
+      {showConfetti && <ConfettiExplosion />}
     </div>
   );
 };
