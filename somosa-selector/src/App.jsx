@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import clickSound from "./assets/samosaClick.mp3";
 import doubleStuffedSound from "./assets/upgradeSound2.mp3";
 import partyPackSound from "./assets/upgradeSound2.mp3";
@@ -9,12 +9,41 @@ import ConfettiExplosion from "react-confetti-explosion";
 const App = () => {
   const [count, setCount] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
-  const [doubleStuffedCost, setDoubleStuffedCost] = useState(5); // TODO: return back to 25
-  const [partyPackCost, setPartyPackCost] = useState(100); // TODO: return back to 1000
-  const [fullFeastCost, setFullFeastCost] = useState(1000); // TODO: return back to 100000
+  const [doubleStuffedCost, setDoubleStuffedCost] = useState(1);
+  const [partyPackCost, setPartyPackCost] = useState(2);
+  const [fullFeastCost, setFullFeastCost] = useState(3);
   const [showConfetti, setShowConfetti] = useState(false);
   const [confettiKey, setConfettiKey] = useState(0);
   const [isConfettiRunning, setIsConfettiRunning] = useState(false);
+  const appRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (appRef.current) {
+        const rect = appRef.current.getBoundingClientRect();
+        setAppDimensions({
+          left: rect.left,
+          top: rect.top,
+          width: rect.width,
+          height: rect.height,
+        });
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const [appDimensions, setAppDimensions] = useState({
+    left: 0,
+    top: 0,
+    width: 0,
+    height: 0,
+  });
 
   const formatNumber = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -61,6 +90,7 @@ const App = () => {
       setCount(parseFloat((count - partyPackCost).toFixed(2)));
       setPartyPackCost(partyPackCost + partyPackCost * 0.5);
       playSound(partyPackSound);
+      triggerConfetti();
     }
   };
 
@@ -70,11 +100,12 @@ const App = () => {
       setCount(parseFloat((count - fullFeastCost).toFixed(2)));
       setFullFeastCost(fullFeastCost + fullFeastCost * 0.75);
       playSound(fullFeastSound);
+      triggerConfetti();
     }
   };
 
   return (
-    <div className="App">
+    <div className="App" ref={appRef}>
       <div className="header">
         <h1>Samosa Selector</h1>
         <h2>Count: {formatNumber(count.toFixed(2))}</h2>
@@ -115,7 +146,17 @@ const App = () => {
           </button>
         </div>
       </div>
-      {showConfetti && <ConfettiExplosion key={confettiKey} />}
+      {showConfetti && (
+        <ConfettiExplosion
+          key={confettiKey}
+          confettiSource={{
+            x: Math.random() * (appDimensions.width - 200) + appDimensions.left,
+            y: Math.random() * (appDimensions.height - 200) + appDimensions.top,
+            w: 200,
+            h: 200,
+          }}
+        />
+      )}
     </div>
   );
 };
